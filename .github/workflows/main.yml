@@ -16,7 +16,13 @@ jobs:
   myEvent:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.event.client_payload.ref }}
+
+      - name: Build docker file
+        run: |
+          docker build . -t neocycf/test-image:${{ github.sha }}
+
       - run: echo ${{ github.event.client_payload.sha }}
