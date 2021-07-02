@@ -24,5 +24,18 @@ jobs:
       - name: Build docker file
         run: |
           docker build . -t neocycf/test-image:${{ github.sha }}
+      
+      - name: Update Image Version in the related HelmChart values.yaml
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          valueFile: 'helm/github-actions-runner/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ github.sha }}
+          branch: deployment/${{ github.sha }}
+          targetBranch: master
+          createPR: 'true'
+          message: 'Update Image Version to ${{ github.sha }}'
+          labels: |
+            automated pr
 
       - run: echo ${{ github.event.client_payload.sha }}
