@@ -39,7 +39,7 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.WORKFLOW2 }}" \
           https://api.github.com/repos/neocycf/repo2/git/refs \
-          -d '{"ref":"refs/heads/testbranch","sha":${{ github.sha }}}'
+          -d '{"ref":"refs/heads/testbranch","sha":"${{ github.sha }}"}'
           
       #    echo ${{ github.event.client_payload.sha }}
       #    echo ${{ secrets.GITHUB_TOKEN }} >> temp.txt
