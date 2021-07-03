@@ -1,15 +1,1 @@
 replicaCount: 4
-namespace: repo2
-image:
-  repository: abc
-  name: github-runner
-  tag: 051cff3a6028b3db7d268b49377954f73864edef
-imagePullSecrets: artifactory-pull-secret
-imagePullPolicy: Always
-serviceAccount:
-  annotations: {}
-github:
-  owner: Daniel
-  repository: repo2
-  token: null
-  labels: from-repo2
