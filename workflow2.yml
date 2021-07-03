@@ -1,4 +1,4 @@
-name: workflow2
+name: workflowTwo
 on:
   repository_dispatch:
     types: [my-event]
