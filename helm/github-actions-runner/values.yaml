@@ -1,23 +1,15 @@
-# Default values for github-actions-runner.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 4
-namespace: "repo2"
+namespace: repo2
 image:
   repository: abc
   name: github-runner
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
-
+  tag: 7e5816a7da91f995b125acb027222c0cc5a6e1dc
 imagePullSecrets: artifactory-pull-secret
 imagePullPolicy: Always
-
 serviceAccount:
   annotations: {}
-
 github:
   owner: Daniel
-  repository: "repo2"
-  token:
-  labels: "from-repo2"
+  repository: repo2
+  token: null
+  labels: from-repo2
