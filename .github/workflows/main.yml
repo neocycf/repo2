@@ -43,12 +43,12 @@ jobs:
         uses: neocycf/yaml-update-action@v0.5.0
         with:
           valueFile: 'helm/github-actions-runner/values.yaml'
-          propertyPath: 'image.tag'
+          propertyPath: 'replicaCount'
           value: 1 #${{ github.sha }}
           branch: "my-branch"
           #targetBranch: main
-          createPR: 'true'
-          message: 'Update Image Version to ${{ github.sha }}'
+          createPR: True
+          message: 'Update Image Version'
           token: ${{ secrets.GITHUB_TOKEN }}
           updateFile: True
 
