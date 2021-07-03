@@ -25,3 +25,5 @@ jobs:
         with:
     # The branch to create
          branch: feature2 # optional, default is release-candidate
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
