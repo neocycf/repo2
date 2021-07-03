@@ -40,7 +40,7 @@ jobs:
 
       - name: Update Image Version in the related HelmChart values.yaml
         #uses: fjogeleit/yaml-update-action@master
-        uses: neocycf/yaml-update-action@master
+        uses: neocycf/yaml-update-action@eaf7a167cee9e36496050edff9b8490a43061054
         with:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'replicaCount'
