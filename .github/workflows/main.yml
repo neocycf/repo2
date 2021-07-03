@@ -43,7 +43,7 @@ jobs:
         with:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
-          value: ${{ github.sha }}
+          value: 1 #${{ github.sha }}
           branch: "my-branch"
           #targetBranch: main
           createPR: 'true'
