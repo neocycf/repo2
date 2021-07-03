@@ -13,7 +13,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-permissions: write-all
+#permissions: write-all
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,10 +43,10 @@ jobs:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
-          branch: feature1
+          branch: feature2
           targetBranch: main
           createPR: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.workflow2 }}
 
       
