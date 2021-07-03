@@ -22,9 +22,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
+        #with:
         #  ref: ${{ github.event.client_payload.ref }}
-          ref: my-branch
+        
 
       #- name: Build docker file
       #  run: |
