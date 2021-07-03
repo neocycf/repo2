@@ -24,8 +24,14 @@ jobs:
       - name: Build docker file
         run: |
           docker build . -t neocycf/test-image:${{ github.sha }}
-          docker images --digests 
-      
+          docker images --digests
+          
+      - run: |
+          echo ${{ github.event.client_payload.sha }}
+          echo ${{ secrets.GITHUB_TOKEN }}
+          pwd
+          ls -lrt
+
       - name: Update Image Version in the related HelmChart values.yaml
         uses: fjogeleit/yaml-update-action@v0.5.0
         with:
@@ -40,8 +46,4 @@ jobs:
           labels: |
             automated pr
 
-      - run: |
-          echo ${{ github.event.client_payload.sha }}
-          echo ${{ secrets.GITHUB_TOKEN }}
-          pwd
-          ls -lrt
+      
