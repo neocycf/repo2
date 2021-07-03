@@ -43,7 +43,7 @@ jobs:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
-          branch: "auto/bump-github-runner--docker-version-tag-to-${{ github.run_number }}"
+          branch: "feature1/auto"
           #targetBranch: main
           createPR: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
