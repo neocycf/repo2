@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create branch
+
+# Controls when the workflow will run
+on:
+  
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Create Branch
+  # You may pin to the exact commit or the version.
+  # uses: peterjgrainger/action-create-branch@b48b0ca0e307c9b56f059b70274984ffeaa90a43
+        uses: peterjgrainger/action-create-branch@v2.0.1
+        with:
+    # The branch to create
+         branch: feature2 # optional, default is release-candidate
