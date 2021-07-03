@@ -3,7 +3,7 @@ namespace: repo2
 image:
   repository: abc
   name: github-runner
-  tag: 7e5816a7da91f995b125acb027222c0cc5a6e1dc
+  tag: a123f0b4472e61d4f57731632143e0f4b36b6210
 imagePullSecrets: artifactory-pull-secret
 imagePullPolicy: Always
 serviceAccount:
