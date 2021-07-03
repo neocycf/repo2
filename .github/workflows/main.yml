@@ -36,15 +36,13 @@ jobs:
       - name: Update Image Version in the related HelmChart values.yaml
         uses: fjogeleit/yaml-update-action@v0.5.0
         with:
-          valueFile: 'github-actions-runner/values.yaml'
+          valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
-          branch: deployment/${{ github.sha }}
+          branch: main
           targetBranch: main
           createPR: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
           token: ${{ secrets.GITHUB_TOKEN }}
-          labels: |
-            automated pr
 
       
