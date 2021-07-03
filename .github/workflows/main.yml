@@ -41,6 +41,13 @@ jobs:
           https://api.github.com/repos/neocycf/repo2/git/refs \
           -d '{"ref":"refs/heads/testbranch","sha":"${{ github.sha }}"}'
           
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.WORKFLOW2 }}" \
+          https://api.github.com/repos/neocycf/repo2/pulls \
+          -d '{"head":"testbranch","base":"main"}'
+          
       #    echo ${{ github.event.client_payload.sha }}
       #    echo ${{ secrets.GITHUB_TOKEN }} >> temp.txt
       #    cat temp.txt
