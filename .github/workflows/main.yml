@@ -22,8 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.client_payload.ref }}
+        #with:
+        #  ref: ${{ github.event.client_payload.ref }}
 
       - name: Build docker file
         run: |
@@ -43,10 +43,11 @@ jobs:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
-          branch: feature1
+          branch: feature2
           targetBranch: main
           createPR: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
           token: ${{ secrets.workflow2 }}
+          updateFile: True
 
       
