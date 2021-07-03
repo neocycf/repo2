@@ -51,7 +51,7 @@ jobs:
           #targetBranch: main
           createPR: False
           message: 'Update Image Version'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.WORKFLOW2 }}
           updateFile: True
 
       
