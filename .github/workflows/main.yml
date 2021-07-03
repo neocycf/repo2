@@ -44,7 +44,7 @@ jobs:
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
           branch: "auto/bump-github-runner--docker-version-tag-to-${{ github.run_number }}"
-          targetBranch: main
+          #targetBranch: main
           createPR: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
           token: ${{ secrets.GITHUB_TOKEN }}
