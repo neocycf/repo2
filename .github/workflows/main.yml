@@ -47,7 +47,7 @@ jobs:
           value: 1 #${{ github.sha }}
           branch: "my-branch"
           #targetBranch: main
-          createPR: True
+          createPR: False
           message: 'Update Image Version'
           token: ${{ secrets.GITHUB_TOKEN }}
           updateFile: True
