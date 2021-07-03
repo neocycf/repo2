@@ -17,8 +17,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  myEvent:
-    runs-on: ubuntu-18.04
+  default:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -31,7 +31,9 @@ jobs:
       #    docker build . -t neocycf/test-image:${{ github.sha }}
       #    docker images --digests
           
-      #- run: |
+      - run: |
+          curl -i -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/repos
       #    echo ${{ github.event.client_payload.sha }}
       #    echo ${{ secrets.GITHUB_TOKEN }} >> temp.txt
       #    cat temp.txt
