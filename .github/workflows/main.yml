@@ -5,8 +5,8 @@ name: workflow2
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  repository_dispatch:
-    types: [ my-event ]
+  #repository_dispatch:
+  #  types: [ my-event ]
     
 
 
@@ -25,17 +25,17 @@ jobs:
         #with:
         #  ref: ${{ github.event.client_payload.ref }}
 
-      - name: Build docker file
-        run: |
-          docker build . -t neocycf/test-image:${{ github.sha }}
-          docker images --digests
+      #- name: Build docker file
+      #  run: |
+      #    docker build . -t neocycf/test-image:${{ github.sha }}
+      #    docker images --digests
           
-      - run: |
-          echo ${{ github.event.client_payload.sha }}
-          echo ${{ secrets.GITHUB_TOKEN }} >> temp.txt
-          cat temp.txt
-          pwd
-          ls -lrt
+      #- run: |
+      #    echo ${{ github.event.client_payload.sha }}
+      #    echo ${{ secrets.GITHUB_TOKEN }} >> temp.txt
+      #    cat temp.txt
+      #    pwd
+      #    ls -lrt
 
       - name: Update Image Version in the related HelmChart values.yaml
         uses: fjogeleit/yaml-update-action@v0.5.0
@@ -43,11 +43,12 @@ jobs:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
-          branch: helm/${{ github.sha }}
+          branch: main
           targetBranch: main
           createPR: 'true'
+          commitChange: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
-          token: ${{ secrets.workflow2 }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           updateFile: True
 
       
