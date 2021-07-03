@@ -39,7 +39,7 @@ jobs:
           valueFile: 'helm/github-actions-runner/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ github.sha }}
-          branch: main
+          branch: feature1
           targetBranch: main
           createPR: 'true'
           message: 'Update Image Version to ${{ github.sha }}'
