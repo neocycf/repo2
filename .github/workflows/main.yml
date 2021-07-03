@@ -32,7 +32,7 @@ jobs:
       #    docker images --digests
           
       - run: |
-          curl -i -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          curl -i -H "Authorization: token ${{ secrets.WORKFLOW2 }}" \
           -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/repos
       #    echo ${{ github.event.client_payload.sha }}
       #    echo ${{ secrets.GITHUB_TOKEN }} >> temp.txt
