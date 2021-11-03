@@ -1,0 +1,4 @@
+site_name: repo2
+
+nav:
+  - Reference: "index.md"
